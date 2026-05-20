@@ -28,6 +28,12 @@ export interface BdsLaunchOptions {
   autoDownload?: boolean;
   /** Override the world template path for this run. Falls back to versionConfig.templateWorldPath. */
   templateWorldPath?: string;
+  /**
+   * Directory containing bundled behavior-pack subdirectories. Each
+   * `<dir>/<pack>/` is copied to BDS's `development_behavior_packs/<pack>/`
+   * before launch. BDS auto-loads anything in that folder.
+   */
+  behaviorPacksDir?: string;
   /** Timeout for "server started" detection. Default 60s. */
   startupTimeoutMs?: number;
 }
@@ -65,6 +71,24 @@ export async function launchBds(opts: BdsLaunchOptions): Promise<BdsHandle> {
     fs.rmSync(serverWorldPath, { recursive: true, force: true });
     fs.cpSync(templatePath, serverWorldPath, { recursive: true });
     console.log(`[bdt] copied template world ${templatePath} → ${serverWorldPath}`);
+  }
+
+  // Bundled behavior packs — copy each `behavior_packs/<name>/` from the
+  // repo into BDS's `development_behavior_packs/<name>/`, which BDS
+  // auto-loads at startup. Required for fixtures that fire scriptevents
+  // (e.g. `scriptevent test:equip_enchanted …` for Soul Speed boots).
+  const repoBpDir = opts.behaviorPacksDir;
+  if (repoBpDir && fs.existsSync(repoBpDir)) {
+    const targetRoot = path.join(bdsPath, 'development_behavior_packs');
+    fs.mkdirSync(targetRoot, { recursive: true });
+    for (const name of fs.readdirSync(repoBpDir)) {
+      const src = path.join(repoBpDir, name);
+      if (!fs.statSync(src).isDirectory()) continue;
+      const dst = path.join(targetRoot, name);
+      fs.rmSync(dst, { recursive: true, force: true });
+      fs.cpSync(src, dst, { recursive: true });
+      console.log(`[bdt] installed behavior pack '${name}' → ${dst}`);
+    }
   }
 
   writeServerProperties(bdsPath, {

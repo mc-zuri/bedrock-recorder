@@ -60,10 +60,16 @@ export async function recordCommand(opts: RecordOptions): Promise<void> {
   }
 
   console.log('[bdt] launching BDS …');
+  // The bundled behavior_packs/ dir lives next to bdt.config.json (which
+  // findAndLoadConfig already located by walking up from cwd). On launch,
+  // each pack subdir is copied into BDS's development_behavior_packs/.
+  const behaviorPacksDir = path.join(path.dirname(configPath), 'behavior_packs');
+
   const bds = await launchBds({
     config,
     versionConfig: vcfg,
     autoDownload: opts.bdsAutodownload !== false,
+    behaviorPacksDir,
   });
 
   const input = new InputController();

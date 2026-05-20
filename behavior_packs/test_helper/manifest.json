@@ -1,0 +1,25 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Physics Test Helper",
+    "description": "Helper scripts for physics testing - tracks player position on fall",
+    "uuid": "a8d43bd0-cffd-4988-949a-5105e14bb5f2",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 20, 0]
+  },
+  "modules": [
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "b8d43bd0-cffd-4988-949a-5105e14bb5f3",
+      "entry": "main.js",
+      "version": [1, 1, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.11.0"
+    }
+  ]
+}
