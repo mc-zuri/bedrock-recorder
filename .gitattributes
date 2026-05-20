@@ -1,0 +1,21 @@
+# LevelDB / world files are binary — DO NOT let git touch line endings.
+# Corrupts the database otherwise.
+worlds/**/db/* binary
+worlds/**/*.dat binary
+worlds/**/*.dat_old binary
+worlds/**/*.mcworld binary
+worlds/**/*.jpeg binary
+worlds/**/*.jpg binary
+worlds/**/*.png binary
+
+# Native addon outputs (in case any get tracked)
+*.node binary
+*.dll binary
+*.lib binary
+*.exp binary
+*.pdb binary
+
+# Recording artefacts (mostly gitignored, but belt-and-braces)
+*.proxy.bin binary
+*.v26dump binary
+*.v26world binary

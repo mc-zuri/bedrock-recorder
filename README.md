@@ -34,9 +34,14 @@ has sensible defaults under `./bds/`, `./profiles/`, `./dumps/`.
 
 ### 3. Build the shared world template *(one-time, ~2 min)*
 
-Records the `shared_world_setup` fixture which builds 29 scenes in BDS,
-then snapshots the resulting world dir as a deterministic template that
-every future recording starts from.
+A flat starter world with beta-API experiments enabled is bundled at
+[`worlds/beta_flat_1.26.0/`](worlds/) — the example config points
+`templateWorldPath` at it. Beta API is required for some setup
+`scriptevent` commands (Soul Speed boots, etc.).
+
+Now build the 29 scenes (stairs, water/lava pools, ladders, etc.) on top
+of the flat base by recording the setup fixture, then snapshot the
+result as your working template:
 
 ```pwsh
 node packages/cli/dist/cli.js record --fixture shared_world_setup --client 1.26.13.1
@@ -47,6 +52,10 @@ Wait for the recorder to print `done.`, then:
 ```pwsh
 node packages/cli/dist/cli.js snapshot-world --client 1.26.13.1 --force
 ```
+
+`snapshot-world` copies the resulting BDS world back into the template
+dir, so every subsequent recording starts from the **fully-built**
+scenes world instead of the flat base.
 
 ### 4. Record a fixture
 

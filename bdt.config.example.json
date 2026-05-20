@@ -5,16 +5,16 @@
     "1.21.0": {
       "protocolVersion": "1.21.0",
       "bdsVersion": "1.21.0",
-      "templateWorldPath": "./worlds/template",
-      "scenesWorldPath": "./worlds/scenes",
-      "worldName": "template"
+      "templateWorldPath": "./worlds/beta_flat_1.26.0",
+      "scenesWorldPath": "./worlds/beta_flat_1.26.0",
+      "worldName": "BETA_FLAT_1.26.0"
     },
     "1.26.13.1": {
       "protocolVersion": "26.10",
       "bdsVersion": "1.26.14.1",
-      "templateWorldPath": "./worlds/template",
-      "scenesWorldPath": "./worlds/scenes",
-      "worldName": "template"
+      "templateWorldPath": "./worlds/beta_flat_1.26.0",
+      "scenesWorldPath": "./worlds/beta_flat_1.26.0",
+      "worldName": "BETA_FLAT_1.26.0"
     }
   },
   "dumpDir": "./dumps",
