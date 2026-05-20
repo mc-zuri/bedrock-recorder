@@ -1,0 +1,23 @@
+{
+  "name": "@bdt/scenarios",
+  "private": true,
+  "version": "0.1.0",
+  "description": "SimulationBuilder DSL + primitive registry + JSON parametric overlay expander.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test --test-isolation=none dist/overlay/expand.test.js dist/builder.test.js dist/util/substitute.test.js dist/executor.test.js dist/preamble.test.js",
+    "clean": "rimraf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@bdt/core": "*",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "@types/node": "^22.10.0"
+  }
+}

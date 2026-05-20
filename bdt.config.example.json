@@ -1,0 +1,33 @@
+{
+  "$comment": "Copy to bdt.config.json and edit. The recorder walks up from cwd to find this file.",
+  "defaultVersion": "1.26.13.1",
+  "versions": {
+    "1.21.0": {
+      "protocolVersion": "1.21.0",
+      "bdsVersion": "1.21.0",
+      "templateWorldPath": "./worlds/template",
+      "scenesWorldPath": "./worlds/scenes",
+      "worldName": "template"
+    },
+    "1.26.13.1": {
+      "protocolVersion": "26.10",
+      "bdsVersion": "1.26.14.1",
+      "templateWorldPath": "./worlds/template",
+      "scenesWorldPath": "./worlds/scenes",
+      "worldName": "template"
+    }
+  },
+  "dumpDir": "./dumps",
+  "relay": {
+    "host": "0.0.0.0",
+    "port": 19150,
+    "$comment_username": "Your Minecraft gamertag — the relay registers this player.",
+    "username": "YOUR_GAMERTAG",
+    "$comment_profilesFolder": "Where bedrock-protocol caches account profiles (Xbox auth, certs). Anywhere writable works.",
+    "profilesFolder": "./profiles"
+  },
+  "bdsPaths": {
+    "$comment_base": "Where minecraft-bedrock-server auto-downloads BDS. Anywhere writable works.",
+    "base": "./bds"
+  }
+}

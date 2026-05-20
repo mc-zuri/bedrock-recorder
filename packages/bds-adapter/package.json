@@ -1,0 +1,27 @@
+{
+  "name": "@bdt/bds-adapter",
+  "private": true,
+  "version": "0.1.0",
+  "description": "BDS lifecycle + bedrock-protocol Relay + PacketDumpWriter.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsc -p tsconfig.json && node --test --test-isolation=none dist/dump-writer.test.js dist/version-registry.test.js dist/config.test.js dist/before-each-case.test.js",
+    "clean": "rimraf dist *.tsbuildinfo"
+  },
+  "dependencies": {
+    "@bdt/core": "*",
+    "@bdt/native-input": "*",
+    "bedrock-protocol": "~3.55.0",
+    "csbinary": "^2.1.3",
+    "minecraft-bedrock-server": "^1.0.7",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "@types/node": "^22.10.0"
+  }
+}

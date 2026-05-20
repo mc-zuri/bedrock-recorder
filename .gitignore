@@ -1,0 +1,23 @@
+node_modules/
+dist/
+*.tsbuildinfo
+
+# native build outputs
+packages/native-input/build/
+packages/native-input/prebuilds/
+
+# recording artifacts
+fixtures-out/
+/dumps/
+/traces/
+
+# local config overrides
+bdt.config.json
+bdt.config.local.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp

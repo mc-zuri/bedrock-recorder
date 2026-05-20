@@ -1,0 +1,23 @@
+{
+  "name": "bedrock-tools-v5",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Minecraft Bedrock client automation + recorder. Successor to bedrock-tools-v2.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspaces --if-present",
+    "build:native": "npm run build -w @bdt/native-input",
+    "test": "npm test --workspaces --if-present",
+    "clean": "npm run clean --workspaces --if-present",
+    "bdt": "node packages/cli/dist/cli.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "@types/node": "^22.10.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

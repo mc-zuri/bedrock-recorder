@@ -1,0 +1,10 @@
+{
+  "$comment": "Example overlay: 8 yaws × 4 pitches = 32 walk test cases.",
+  "name": "walk_yaw_pitch_sweep",
+  "description": "Walk forward at every 45° yaw step, crossed with a small pitch range.",
+  "primitive": "walk",
+  "matrix": {
+    "yaw":   { "kind": "range", "from": 0, "to": 315, "step": 45 },
+    "pitch": { "kind": "list",  "values": [-30, 0, 15, 45] }
+  }
+}
